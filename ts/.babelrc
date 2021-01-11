@@ -1,0 +1,18 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+      ["@babel/plugin-proposal-class-properties"],
+      ["@babel/transform-runtime"],
+      ["module-resolver", {
+        "root": ["./src"],
+        "alias": {
+            "core": "./src/ts/core",
+            "lib": "./src/ts/lib",
+            "containers": "./src/ts/containers",
+            "components": "./src/ts/components",
+            "images": "./src/images",
+            "styles": "./src/styles"
+        }
+    }]
+    ]
+}
