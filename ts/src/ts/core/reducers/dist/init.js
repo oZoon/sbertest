@@ -47,10 +47,9 @@ var init = {
         detailsCheckTaskShowConfirm: false
     }
 };
-var records = new records_1["default"]();
-var initLocalStorage = records.getRecord("sber-" + constants_1.VERSION);
+var initLocalStorage = records_1["default"].getRecord("sber-" + constants_1.VERSION);
 if (initLocalStorage !== null && initLocalStorage.todos.length != 0) {
     init = initLocalStorage;
 }
-records.setRecord("sber-" + constants_1.VERSION, init);
+records_1["default"].setRecord("sber-" + constants_1.VERSION, init);
 exports["default"] = init;

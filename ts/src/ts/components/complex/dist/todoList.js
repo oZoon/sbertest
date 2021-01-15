@@ -18,6 +18,7 @@ var taskList_1 = require("../complex/taskList");
 var detailTodo_1 = require("../complex/detailTodo");
 var constants_1 = require("../../lib/constants");
 exports["default"] = (function (props) {
+    // console.log(props.modalDetailTodo);
     return (react_1["default"].createElement("div", { className: "content__show-todo__list" }, props.todos.map(function (item) {
         return (react_1["default"].createElement("div", { key: item.id },
             react_1["default"].createElement("div", { className: "content__show-todo__item" },
@@ -29,8 +30,7 @@ exports["default"] = (function (props) {
                         item.todoName)),
             react_1["default"].createElement("div", { style: item.isExpanded ? { display: 'block' } : { display: 'none' } },
                 react_1["default"].createElement(taskList_1["default"], { tasks: item.tasks })),
-            react_1["default"].createElement("div", { style: props.activityTodoList.detailsTodoId == item.id ? { display: 'block' } : { display: 'none' } },
-                react_1["default"].createElement(modal_1["default"], __assign({}, props.modalDetailTodo, { isOpen: item.editDialogVisible, itemId: item.id }),
-                    react_1["default"].createElement(detailTodo_1["default"], __assign({}, props.detailTodo, { item: item }))))));
+            react_1["default"].createElement(modal_1["default"], __assign({}, props.modalDetailTodo, { isOpen: props.activityTodoList.detailsTodoId == item.id, itemId: item.id }),
+                react_1["default"].createElement(detailTodo_1["default"], __assign({}, props.detailTodo, { item: item })))));
     })));
 });

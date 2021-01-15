@@ -3,7 +3,7 @@ import {
     VERSION,
 } from '../../lib/constants';
 import {tasks, todo} from '../../lib/phrases';
-import Records from '../../lib/records';
+import records from '../../lib/records';
 import {randomString, generatorNumber} from '../../lib/utils';
 
 let init = {
@@ -57,7 +57,6 @@ let init = {
     }
 };
 
-const records = new Records();
 const initLocalStorage = records.getRecord(`sber-${VERSION}`);
 if (initLocalStorage !== null && initLocalStorage.todos.length != 0) {
     init = initLocalStorage;

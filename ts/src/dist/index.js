@@ -11,8 +11,7 @@ var constants_1 = require("./ts/lib/constants");
 require("./styles/main.css");
 var store = redux_1.createStore(reducers_1["default"]);
 var update = function () {
-    var records = new records_1["default"]();
-    records.setRecord("sber-" + constants_1.VERSION, store.getState());
+    records_1["default"].setRecord("sber-" + constants_1.VERSION, store.getState());
 };
 store.subscribe(update);
 react_dom_1["default"].render(react_1["default"].createElement(react_redux_1.Provider, { store: store },

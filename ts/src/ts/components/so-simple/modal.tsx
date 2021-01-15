@@ -39,7 +39,7 @@ export default (props: modalType) => {
                             </div>
                             <Button
                                 className="modal__overlay-header__button-close"
-                                onClick={props.onCancel}
+                                onClick={() => props.onCancel({data: {id: props.itemId}})}
                             >
                                 ✖
                             </Button>
@@ -50,16 +50,20 @@ export default (props: modalType) => {
                         <div className="modal__overlay-footer">
                             <Button
                                 className="modal__button"
-                                onClick={props.onCancel}
+                                onClick={() => props.onCancel({data: {id: props.itemId}})}
                                 invert
                             >
                                 {props.cancelName}
                             </Button>
-                            {props.submit && props.submitName && props.onSubmit && props.itemId &&
+                            {props.submit && props.submitName &&
                                 <Button
                                     disabled={props.disabled}
                                     className="modal__button"
-                                    onClick={props.onSubmit({data: {id: props.itemId}})}
+                                    onClick={() => {
+                                        if (props.onSubmit) {
+                                            props.onSubmit({data: {id: props.itemId}});}
+                                    }
+                                    }
                                 >
                                     {props.submitName}
                                 </Button>

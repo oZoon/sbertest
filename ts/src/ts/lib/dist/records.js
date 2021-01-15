@@ -11,4 +11,5 @@ var Records = /** @class */ (function () {
     };
     return Records;
 }());
-exports["default"] = Records;
+var records = new Records();
+exports["default"] = records;

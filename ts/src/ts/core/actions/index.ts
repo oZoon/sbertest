@@ -44,15 +44,15 @@ export const taskVisible = ({data: {id}}: idType) => {
 export const openTodoDetails = ({data: {id}}: idType) => {
     return {
         type: c.TODO_DETAILS,
-        visible: true,
+        // visible: true,
         id,
     };
 };
-export const closeTodoDetails = ({data: {id}}: idType) => {
+export const closeTodoDetails = () => {
     return {
         type: c.TODO_DETAILS,
-        visible: false,
-        id,
+        // visible: false,
+        // id,
     };
 };
 

@@ -27,7 +27,7 @@ npm run prd (production)
 
 ## ChangeLog
 
-### version 1.0.1
+### version 1.1.0
 
 > works:
 - new todo

@@ -8,7 +8,6 @@ import DetailTodo from '../complex/detailTodo';
 import {SETTINGS_DELETE_TODO_CONFIRM} from '../../lib/constants';
 import {todoType, itemTodoType, activityTodoListType, modalDetailTodoType, detailTodoType, deleteTodoConfirmType} from '../../lib/types';
 
-
 type todoListType = {
     todos: todoType[],
     itemTodo: itemTodoType,
@@ -19,6 +18,8 @@ type todoListType = {
 }
 
 export default (props: todoListType) => {
+    // console.log(props.modalDetailTodo);
+
     return (
         <div className="content__show-todo__list">
             {props.todos.map(item => {
@@ -45,18 +46,18 @@ export default (props: todoListType) => {
                         <div style={item.isExpanded ? {display: 'block'} : {display: 'none'}}>
                             <TaskList tasks={item.tasks} />
                         </div>
-                        <div style={props.activityTodoList.detailsTodoId == item.id ? {display: 'block'} : {display: 'none'}}>
-                            <Modal
-                                {...props.modalDetailTodo}
-                                isOpen={item.editDialogVisible}
-                                itemId={item.id}
-                            >
-                                <DetailTodo
-                                    {...props.detailTodo}
-                                    item={item}
-                                />
-                            </Modal>
-                        </div>
+                        {/* <div style={props.activityTodoList.detailsTodoId == item.id ? {display: 'block'} : {display: 'none'}}> */}
+                        <Modal
+                            {...props.modalDetailTodo}
+                            isOpen={props.activityTodoList.detailsTodoId == item.id}
+                            itemId={item.id}
+                        >
+                            <DetailTodo
+                                {...props.detailTodo}
+                                item={item}
+                            />
+                        </Modal>
+                        {/* </div> */}
                     </div>
                 );
             })}

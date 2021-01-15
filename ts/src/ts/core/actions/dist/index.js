@@ -46,16 +46,13 @@ exports.openTodoDetails = function (_a) {
     var id = _a.data.id;
     return {
         type: c.TODO_DETAILS,
-        visible: true,
+        // visible: true,
         id: id
     };
 };
-exports.closeTodoDetails = function (_a) {
-    var id = _a.data.id;
+exports.closeTodoDetails = function () {
     return {
-        type: c.TODO_DETAILS,
-        visible: false,
-        id: id
+        type: c.TODO_DETAILS
     };
 };
 exports.deleteTodo = function (_a) {

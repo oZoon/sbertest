@@ -8,10 +8,14 @@ exports["default"] = (function (props) {
             react_1["default"].createElement("div", { className: "modal__overlay-window", style: { width: props.width, minHeight: props.minHeight } },
                 react_1["default"].createElement("div", { className: "modal__overlay-header" },
                     react_1["default"].createElement("div", { className: "modal__overlay-header__title" }, props.title),
-                    react_1["default"].createElement(button_1["default"], { className: "modal__overlay-header__button-close", onClick: props.onCancel }, "\u2716")),
+                    react_1["default"].createElement(button_1["default"], { className: "modal__overlay-header__button-close", onClick: function () { return props.onCancel({ data: { id: props.itemId } }); } }, "\u2716")),
                 react_1["default"].createElement("div", { className: "modal__overlay-body" }, props.children),
                 react_1["default"].createElement("div", { className: "modal__overlay-footer" },
-                    react_1["default"].createElement(button_1["default"], { className: "modal__button", onClick: props.onCancel, invert: true }, props.cancelName),
-                    props.submit && props.submitName && props.onSubmit && props.itemId &&
-                        react_1["default"].createElement(button_1["default"], { disabled: props.disabled, className: "modal__button", onClick: props.onSubmit({ data: { id: props.itemId } }) }, props.submitName))))));
+                    react_1["default"].createElement(button_1["default"], { className: "modal__button", onClick: function () { return props.onCancel({ data: { id: props.itemId } }); }, invert: true }, props.cancelName),
+                    props.submit && props.submitName &&
+                        react_1["default"].createElement(button_1["default"], { disabled: props.disabled, className: "modal__button", onClick: function () {
+                                if (props.onSubmit) {
+                                    props.onSubmit({ data: { id: props.itemId } });
+                                }
+                            } }, props.submitName))))));
 });

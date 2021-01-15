@@ -7,6 +7,8 @@ type doDetailsType = {
 }
 
 export default (props: doDetailsType) => {
+    // console.log({data: {id: props.itemId}});
+
     return (
         <span
             style={{cursor: 'pointer'}}

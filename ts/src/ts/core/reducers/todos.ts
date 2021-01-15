@@ -1,9 +1,9 @@
 /* eslint-disable babel/camelcase */
 import * as c from '../../lib/constants';
-import {actionType, initType, taskType, todoType,} from '../../lib/types';
+import {initType, taskType, todoType,} from '../../lib/types';
 import {randomString} from '../../lib/utils';
 
-function todos(state: initType, action: actionType) {
+function todos(state: initType, action: any) {
     const newState = JSON.parse(JSON.stringify(state));
     switch (action.type) {
     case c.TODO_NEW_DIALOG:
@@ -40,8 +40,9 @@ function todos(state: initType, action: actionType) {
         return newState;
 
     case c.TODO_DETAILS:
-        newState.todos.some((item: todoType) => item.id == action.id ? item.editDialogVisible = action.visible !== undefined ? action.visible : false : null);
-        newState.activity.detailsTodoId = action.visible ? action.id : '';
+        // newState.todos.some((item: todoType) => item.id == action.id ? item.editDialogVisible = action.visible : null);
+        newState.activity.detailsTodoId = action.id;
+        // console.log(newState);
         return newState;
 
     case c.TODO_DELETE_SUBMIT:

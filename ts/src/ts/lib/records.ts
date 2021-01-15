@@ -9,4 +9,6 @@ class Records {
     }
 }
 
-export default Records;
+const records = new Records();
+
+export default records;

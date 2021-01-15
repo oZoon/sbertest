@@ -2,13 +2,13 @@ import packageJson from '../../../package.json';
 export const VERSION = packageJson.version;
 export const COUNT_TASK = [3, 5];
 
-export const SETTINGS_NEW_TODO_CONFIRM = true;
-export const SETTINGS_EDIT_TODO_CONFIRM = true;
-export const SETTINGS_DELETE_TODO_CONFIRM = true;
-export const SETTINGS_TASK_DELETE_CONFIRM = true;
-export const SETTINGS_TASK_EDIT_CONFIRM = true;
-export const SETTINGS_TASK_CHECK_CONFIRM = true;
-export const SETTINGS_NEW_TASK_CONFIRM = true;
+export const SETTINGS_NEW_TODO_CONFIRM = false;
+export const SETTINGS_EDIT_TODO_CONFIRM = false;
+export const SETTINGS_DELETE_TODO_CONFIRM = false;
+export const SETTINGS_TASK_DELETE_CONFIRM = false;
+export const SETTINGS_TASK_EDIT_CONFIRM = false;
+export const SETTINGS_TASK_CHECK_CONFIRM = false;
+export const SETTINGS_NEW_TASK_CONFIRM = false;
 
 export const TODO_NEW_DIALOG = 'TODO_NEW_DIALOG';
 export const TODO_NEW_PARTIAL_SAVE = 'TODO_NEW_PARTIAL_SAVE';
@@ -19,7 +19,7 @@ export const TODO_NEW_CONFIRM_SUBMIT = 'TODO_NEW_CONFIRM_SUBMIT';
 
 export const TASK_VISIBLE = 'TASK_VISIBLE';
 
-export const TODO_DETAILS = 'EDIT_TODO_DETAILS';
+export const TODO_DETAILS = 'TODO_DETAILS';
 
 export const TODO_DELETE_SUBMIT = 'TODO_DELETE_SUBMIT';
 export const TODO_DELETE_CONFIRM_SUBMIT = 'TODO_DELETE_CONFIRM_SUBMIT';

@@ -38,8 +38,9 @@ function todos(state, action) {
             newState.todos.some(function (item) { return item.id == action.id ? item.isExpanded = !item.isExpanded : null; });
             return newState;
         case c.TODO_DETAILS:
-            newState.todos.some(function (item) { return item.id == action.id ? item.editDialogVisible = action.visible !== undefined ? action.visible : false : null; });
-            newState.activity.detailsTodoId = action.visible ? action.id : '';
+            // newState.todos.some((item: todoType) => item.id == action.id ? item.editDialogVisible = action.visible : null);
+            newState.activity.detailsTodoId = action.id;
+            // console.log(newState);
             return newState;
         case c.TODO_DELETE_SUBMIT:
             newState.activity.deleteTodoShowConfirm = true;
