@@ -1,5 +1,6 @@
 "use strict";
 
+/* eslint-disable no-undef */
 var paths = require('./paths');
 
 var _require = require('clean-webpack-plugin'),
@@ -16,7 +17,7 @@ module.exports = {
     assetModuleFilename: 'resources/[name][ext]'
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
   plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin({
     title: 'webpack Boilerplate',

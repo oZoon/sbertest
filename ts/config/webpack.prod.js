@@ -1,9 +1,11 @@
-const paths = require('./paths')
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
+/* eslint-disable no-undef */
+const paths = require('./paths');
+const {merge} = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -40,14 +42,21 @@ module.exports = merge(common, {
     },
     optimization: {
         minimize: true,
-        minimizer: [new CssMinimizerPlugin(), "..."],
-        runtimeChunk: {
-            name: 'runtime',
-        },
+        minimizer: [
+            new CssMinimizerPlugin(),
+            new TerserPlugin({
+                terserOptions: {
+                    format: {
+                        comments: false,
+                    },
+                },
+                extractComments: false,
+            }),
+        ],
     },
     performance: {
         hints: false,
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
     },
-})
+});

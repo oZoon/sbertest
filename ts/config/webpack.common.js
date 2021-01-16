@@ -1,7 +1,8 @@
-const paths = require('./paths')
+/* eslint-disable no-undef */
+const paths = require('./paths');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: [paths.src + '/index.tsx'],
@@ -14,7 +15,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: ['.ts', '.tsx', '.js', '.json']
     },
 
     plugins: [
@@ -31,27 +32,27 @@ module.exports = {
     module: {
         rules: [
             // js
-            { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader'] },
+            {test: /\.js$/, exclude: /node_modules/, use: ['babel-loader']},
 
             // ts
-            { test: /\.(ts|tsx)$/, exclude: /node_modules/, use: ['ts-loader'] },
+            {test: /\.(ts|tsx)$/, exclude: /node_modules/, use: ['ts-loader']},
 
             // styles
             {
                 test: /\.(scss|css)$/,
                 use: [
                     'style-loader',
-                    { loader: 'css-loader', options: { sourceMap: true, importLoaders: 1 } },
-                    { loader: 'postcss-loader', options: { sourceMap: true } },
-                    { loader: 'sass-loader', options: { sourceMap: true } },
+                    {loader: 'css-loader', options: {sourceMap: true, importLoaders: 1}},
+                    {loader: 'postcss-loader', options: {sourceMap: true}},
+                    {loader: 'sass-loader', options: {sourceMap: true}},
                 ],
             },
 
             // images
-            { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+            {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource'},
 
             // fonts and SVG
             //   {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline'},
         ],
     },
-}
+};
